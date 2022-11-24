@@ -4,6 +4,8 @@
 // O componente Navbar será importado dentro de App.jsx para utilização do mesmo.
 import { Link } from "react-router-dom";
 
+import "./Navbar.css";
+
 const Navbar = () => {
   return (
     <nav className="navbar">
