@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 
 // import das bibliotecas para criação das Rotas
-import { createrBrowserRoute, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+
+// importando os componentes - Páginas
+import Home from "./routes/Home";
+import NewPost from "./routes/NewPost";
 
 import "./index.css";
 
@@ -14,9 +18,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Home />,
       },
       {
         path: "/new",
+        element: <NewPost />,
       },
     ],
   },
@@ -24,6 +30,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    {/* chamada do array de objetos router onde se encontra o <App /> e os demais elementos da rota */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
