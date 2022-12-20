@@ -13,10 +13,17 @@ const NewPost = () => {
 
   const [body, setBody] = useState();
 
-  const createPost = (e) => {
+  const createPost = async (e) => {
     e.preventDefault();
-    console.log("teste");
-    console.log(title, body);
+    // console.log("teste");
+    // console.log(title, body);
+    const post = { title, body, userId: 1 };
+
+    await blogFetch.post("/posts", {
+      body: post,
+    });
+
+    navigate("/");
   };
 
   return (
