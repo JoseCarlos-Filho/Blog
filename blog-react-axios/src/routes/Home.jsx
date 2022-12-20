@@ -26,7 +26,7 @@ const Home = () => {
     getPosts();
   }, []);
   return (
-    <div>
+    <div className="home">
       <h1>Últimos posts</h1>
       {posts.length === 0 ? (
         <p>Carregando...</p>
@@ -35,7 +35,9 @@ const Home = () => {
           <div className="post" key={post.id}>
             <h2>{post.title}</h2>
             <p>{post.body}</p>
-            console.log(post);
+            {/* <link to={`/posts/${post.id}`} className="btn-lermais">
+              Ler mais
+            </link> */}
           </div>
         ))
       )}
