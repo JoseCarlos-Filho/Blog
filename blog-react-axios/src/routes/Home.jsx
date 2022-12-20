@@ -14,14 +14,33 @@ const Home = () => {
         "https://jsonplaceholder.typicode.com/posts"
       );
 
-      console.log(response);
-    } catch (e) {}
+      const data = response.data;
+      // console.log(data);
+      setPosts(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {
     getPosts();
   }, []);
-  return <div>Home</div>;
+  return (
+    <div>
+      <h1>Últimos posts</h1>
+      {posts.length === 0 ? (
+        <p>Carregando...</p>
+      ) : (
+        posts.map((post) => (
+          <div className="post" key={post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
+            console.log(post);
+          </div>
+        ))
+      )}
+    </div>
+  );
 };
 
 export default Home;
